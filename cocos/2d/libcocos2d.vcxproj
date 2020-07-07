@@ -424,7 +424,6 @@ xcopy /Y /Q "$(ProjectDir)..\..\external\openssl\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\base\ccCArray.cpp" />
     <ClCompile Include="..\base\CCConfiguration.cpp" />
     <ClCompile Include="..\base\CCConsole.cpp" />
-    <ClCompile Include="..\base\CCController-linux-win32.cpp" />
     <ClCompile Include="..\base\CCData.cpp" />
     <ClCompile Include="..\base\CCDataVisitor.cpp" />
     <ClCompile Include="..\base\CCDirector.cpp" />

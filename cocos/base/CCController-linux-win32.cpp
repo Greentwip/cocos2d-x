@@ -26,7 +26,7 @@ THE SOFTWARE.
  ****************************************************************************/
 
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+#if CC_TARGET_PLATFORM == CC_PLATFORM_LINUX
 #include "base/CCController.h"
 
 #include <functional>

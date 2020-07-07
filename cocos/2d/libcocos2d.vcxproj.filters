@@ -2008,9 +2008,6 @@
     <ClCompile Include="..\..\external\md5\md5.c">
       <Filter>external\md5</Filter>
     </ClCompile>
-    <ClCompile Include="..\base\CCController-linux-win32.cpp">
-      <Filter>base</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\physics\CCPhysicsBody.h">

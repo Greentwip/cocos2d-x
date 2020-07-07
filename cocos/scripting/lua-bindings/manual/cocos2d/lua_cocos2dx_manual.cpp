@@ -5518,6 +5518,7 @@ static void extendEventListenerAcceleration(lua_State* tolua_S)
     lua_pop(tolua_S, 1);
 }
 
+#if CC_TARGET_PLATFORM != CC_PLATFORM_WIN32
 
 static void cloneEventListenerControllerHandler(const cocos2d::EventListenerController* src, cocos2d::EventListenerController* dst, ScriptHandlerMgr::HandlerType type)
 {
@@ -5765,7 +5766,6 @@ static int tolua_cocos2dx_EventListenerController_registerScriptHandler(lua_Stat
 }
 
 
-#if CC_TARGET_PLATFORM != CC_PLATFORM_WIN32
 static void extendEventListenerController(lua_State* L)
 {
     lua_pushstring(L, "cc.EventListenerController");
