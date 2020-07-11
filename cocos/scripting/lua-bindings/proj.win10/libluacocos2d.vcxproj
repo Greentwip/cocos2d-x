@@ -78,6 +78,7 @@
     <ClCompile Include="..\auto\lua_cocos2dx_3d_auto.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="..\auto\lua_cocos2dx_audioengine_auto.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
@@ -86,6 +87,7 @@
     <ClCompile Include="..\auto\lua_cocos2dx_auto.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="..\auto\lua_cocos2dx_cocosbuilder_auto.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
@@ -126,10 +128,12 @@
     <ClCompile Include="..\auto\lua_cocos2dx_physics_auto.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="..\auto\lua_cocos2dx_spine_auto.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="..\auto\lua_cocos2dx_studio_auto.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
@@ -158,6 +162,7 @@
     <ClCompile Include="..\manual\cocos2d\lua_cocos2dx_deprecated.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="..\manual\cocos2d\lua_cocos2dx_experimental_manual.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
@@ -166,6 +171,7 @@
     <ClCompile Include="..\manual\cocos2d\lua_cocos2dx_manual.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="..\manual\cocos2d\lua_cocos2dx_physics_manual.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
@@ -193,10 +199,12 @@
     <ClCompile Include="..\manual\spine\LuaSkeletonAnimation.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="..\manual\spine\lua_cocos2dx_spine_manual.cpp">
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="..\manual\tolua_fix.cpp" />
     <ClCompile Include="..\manual\ui\lua_cocos2dx_experimental_video_manual.cpp" />
@@ -342,9 +350,6 @@
     <None Include="..\script\ui\GuiConstants.lua" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\2d\libcocos2d_win10\libcocos2d.vcxproj">
-      <Project>{07c2895d-720c-487d-b7b4-12c293ea533f}</Project>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9F2D6CE6-C893-4400-B50C-6DB70CC2562F}</ProjectGuid>
@@ -462,8 +467,8 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos;$(EngineRoot)external\lua\tolua;$(EngineRoot)external\lua\luajit\include;$(EngineRoot)external\lua;$(EngineRoot)extensions;$(EngineRoot)external\libwebsockets\win32\include;$(EngineRoot)external;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>LIBLUA_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_WINSOCK_DEPRECATED_NO_WARNINGS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\platform\winrt;$(EngineRoot)external\win10-specific\angle\include;$(EngineRoot)external\win10-specific\zlib\include;$(EngineRoot);$(EngineRoot)cocos;$(EngineRoot)external\lua\tolua;$(EngineRoot)external\lua\luajit\include;$(EngineRoot)external\lua;$(EngineRoot)extensions;$(EngineRoot)external;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>LIBLUA_EXPORTS;_CRT_SECURE_NO_WARNINGS;GL_GLEXT_PROTOTYPES;%(PreprocessorDefinitions);_WINSOCK_DEPRECATED_NO_WARNINGS;WINRT;_USRLUADLL;NOMINMAX</PreprocessorDefinitions>
       <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
@@ -473,7 +478,7 @@
     </Link>
     <Lib>
       <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
-      <AdditionalLibraryDirectories>libcocos2d.lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
@@ -506,7 +511,6 @@
     </Link>
     <Lib>
       <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
-      <AdditionalLibraryDirectories>libcocos2d.lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -540,7 +544,6 @@
     </Link>
     <Lib>
       <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
-      <AdditionalLibraryDirectories>libcocos2d.lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
