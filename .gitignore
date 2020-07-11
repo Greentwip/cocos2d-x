@@ -78,7 +78,6 @@ DerivedData/
 .Target-Release/
 
 # Ignore files built by blackberry
-Simulator/
 Device-Debug/
 Device-Release/
 
@@ -132,7 +131,6 @@ project.properties
 /v*-deps-*.zip
 /v*-lua-runtime-*.zip
 /v*-console-*.zip
-/tools/fbx-conv/
 tests/cpp-tests/Resources/audio
 /tests/lua-empty-test/src/cocos/
 /tests/lua-game-controller-test/src/cocos/
