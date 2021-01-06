@@ -32,6 +32,7 @@ using namespace cocos2d::experimental;
 AudioEngineImpl::AudioEngineImpl()
     : _lazyInitLoop(true)
     , _currentAudioID(0)
+    , _cacheSize(16)
     , _playerCache()
 {
     FillPlayerCache();
@@ -306,24 +307,24 @@ void AudioEngineImpl::setFinishCallback(int audioID, const std::function<void(in
 }
 
 void AudioEngineImpl::FillPlayerCache() {
-    _threadMutex.lock();
-    if (_playerCache.size() < 5) {
-        for (int i = 0; i < 5 - _playerCache.size(); ++i) {
+    _cacheMutex.lock();
+    if (_playerCache.size() < _cacheSize) {
+        for (int i = 0; i < _cacheSize - _playerCache.size(); ++i) {
             _playerCache.push_back(new AudioPlayer());
         }
     }    
-    _threadMutex.unlock();
+    _cacheMutex.unlock();
 
 }
 
 AudioPlayer* AudioEngineImpl::TakePlayerCache() {
     AudioPlayer* playerBackup = nullptr;
-    _threadMutex.lock();
+    _cacheMutex.lock();
     if (!_playerCache.empty()) {
         playerBackup = _playerCache.back();
         _playerCache.pop_back();
     }
-    _threadMutex.unlock();
+    _cacheMutex.unlock();
 
     return playerBackup;
 }

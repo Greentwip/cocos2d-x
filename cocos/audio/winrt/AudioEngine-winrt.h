@@ -76,6 +76,9 @@ NS_CC_BEGIN
      std::vector<int> _toRemoveAudioIDs;
      bool _lazyInitLoop;
      int _currentAudioID;
+
+     std::mutex _cacheMutex;
+     unsigned int _cacheSize;
  };
 }
 
