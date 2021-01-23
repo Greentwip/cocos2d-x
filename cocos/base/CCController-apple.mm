@@ -106,13 +106,17 @@ static GCControllerConnectionEventHandler* __instance = nil;
 
 NS_CC_BEGIN
 
+ControllerImpl::ControllerImpl(Controller* controller){
+    _controller = controller;
+}
+
 class ControllerImplCustom : ControllerImpl
 {
 public:
     ControllerImplCustom(Controller* controller)
     : ControllerImpl(controller), _gcController(nil)
     {
-        _controller = controller;
+        
     }
     GCController* _gcController;
 };
