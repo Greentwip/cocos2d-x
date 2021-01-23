@@ -6,7 +6,10 @@
 #include "scripting/lua-bindings/manual/tolua_fix.h"
 #include "scripting/lua-bindings/manual/LuaBasicConversions.h"
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || \
+     CC_TARGET_PLATFORM == CC_PLATFORM_IOS || \
+     CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || \
+     CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 #include "base/CCEventListenerController.h"
 #include "base/CCEventController.h"
 #include "base/CCController.h"

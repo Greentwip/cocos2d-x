@@ -653,6 +653,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 9F72142C1A5C271F00DAED06;
@@ -875,6 +876,7 @@
 					"$(SRCROOT)/../lib/protobuf-lite",
 				);
 				INFOPLIST_PREFIX_HEADER = "";
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 			};
@@ -906,6 +908,7 @@
 					"$(SRCROOT)/../lib/protobuf-lite",
 				);
 				INFOPLIST_PREFIX_HEADER = "";
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 			};

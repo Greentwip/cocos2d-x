@@ -40,10 +40,18 @@
 #import <Foundation/Foundation.h>
 #import <AppKit/NSSound.h>
 
-enum AudioSessionProperties {
+#ifndef AUDIO_SESSION_PROPERTIES_ENUM
+#define AUDIO_SESSION_PROPERTIES_ENUM
+
+// Available on modern xCode sdks
+
+/*enum AudioSessionProperties {
 	kAudioSessionProperty_OtherAudioIsPlaying,
 	kAudioSessionProperty_AudioRoute	
-};
+};*/
+
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif	

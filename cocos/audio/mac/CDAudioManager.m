@@ -324,10 +324,15 @@ static BOOL configured = FALSE;
 }    
 
 -(BOOL) isOtherAudioPlaying {
-    UInt32 isPlaying = 0;
-    UInt32 varSize = sizeof(isPlaying);
-    AudioSessionGetProperty (kAudioSessionProperty_OtherAudioIsPlaying, &varSize, &isPlaying);
-    return (isPlaying != 0);
+    
+    // Deprecated stuff
+    //UInt32 isPlaying = 0;
+    //UInt32 varSize = sizeof(isPlaying);
+    /*AudioSessionGetProperty (kAudioSessionProperty_OtherAudioIsPlaying, &varSize, &isPlaying);*/
+    //return (isPlaying != 0);
+
+    bool isPlaying = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
+    return isPlaying;
 }
 
 -(void) setMode:(tAudioManagerMode) mode {
@@ -479,10 +484,11 @@ static BOOL configured = FALSE;
 #if TARGET_IPHONE_SIMULATOR
     //Calling audio route stuff on the simulator causes problems
     return NO;
-#else    
-    CFStringRef newAudioRoute;
+#else
+    // Deprecated as of
+    /*CFStringRef newAudioRoute;
     UInt32 propertySize = sizeof (CFStringRef);
-    
+        
     AudioSessionGetProperty (
                              kAudioSessionProperty_AudioRoute,
                              &propertySize,
@@ -500,7 +506,8 @@ static BOOL configured = FALSE;
                                                                  );
         
         return (newDeviceIsMuted == kCFCompareEqualTo);
-    }    
+    }*/
+    return [[AVAudioSession sharedInstance] isDeviceMuted];
 #endif
 }    
 
