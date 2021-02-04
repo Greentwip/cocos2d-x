@@ -42,7 +42,22 @@ THE SOFTWARE.
 #endif
 #include <sys/stat.h>
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+//#define basic_ostream std::basic_ostream
+//#define basic_istream std::basic_istream
+//#define ios_base std::ios_base
+//#include <experimental/filesystem>
+//#undef basic_ostream
+//#undef basic_istream
+//#undef ios_base
+
+#include "ext_headers/ghc/filesystem.hpp"
+
+#endif
+
+
 NS_CC_BEGIN
+
 
 // Implement DictMaker
 
@@ -1426,10 +1441,16 @@ bool FileUtils::removeDirectory(const std::string& path)
     std::string command = "rm -r ";
     // Path may include space.
     command += "\"" + path + "\"";
+    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    return ghc::filesystem::remove_all(path);
+#else
     if (system(command.c_str()) >= 0)
         return true;
     else
         return false;
+#endif
+
 #else
     return false;
 #endif
