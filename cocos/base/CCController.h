@@ -216,7 +216,7 @@ public:
     virtual ~Controller();
 
 
-private:
+public:
     static std::vector<Controller*> s_allController;
 
     void init();
