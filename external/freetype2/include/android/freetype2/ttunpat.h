@@ -1,3 +1,60 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c8c40598318f96b65762caffbd4d5e1c2e7ccf92a4b04136f4ac758a54011df
-size 2231
+/***************************************************************************/
+/*                                                                         */
+/*  ttunpat.h                                                              */
+/*                                                                         */
+/*    Definitions for the unpatented TrueType hinting system               */
+/*                                                                         */
+/*  Copyright 2003, 2006 by                                                */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  Written by Graham Asher <graham.asher@btinternet.com>                  */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
+
+
+#ifndef __TTUNPAT_H__
+#define __TTUNPAT_H__
+
+
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
+#ifdef FREETYPE_H
+#error "freetype.h of FreeType 1 has been loaded!"
+#error "Please fix the directory search order for header files"
+#error "so that freetype.h of FreeType 2 is found first."
+#endif
+
+
+FT_BEGIN_HEADER
+
+
+ /***************************************************************************
+  *
+  * @constant:
+  *   FT_PARAM_TAG_UNPATENTED_HINTING
+  *
+  * @description:
+  *   A constant used as the tag of an @FT_Parameter structure to indicate
+  *   that unpatented methods only should be used by the TrueType bytecode
+  *   interpreter for a typeface opened by @FT_Open_Face.
+  *
+  */
+#define FT_PARAM_TAG_UNPATENTED_HINTING  FT_MAKE_TAG( 'u', 'n', 'p', 'a' )
+
+  /* */
+
+
+FT_END_HEADER
+
+
+#endif /* __TTUNPAT_H__ */
+
+
+/* END */

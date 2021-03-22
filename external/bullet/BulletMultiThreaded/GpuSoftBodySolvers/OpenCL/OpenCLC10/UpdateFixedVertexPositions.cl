@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e79daf3986cd68521508b2d72f6b141d41d64ddad924ad228cedc42a9db14edb
-size 512
+MSTRINGIFY(
+	
+__kernel void 
+UpdateFixedVertexPositions(
+	const uint numNodes,
+	__global int * g_anchorIndex,
+	__global float4 * g_vertexPositions,
+	__global float4 * g_anchorPositions GUID_ARG)
+{
+	unsigned int nodeID = get_global_id(0);
+
+	if( nodeID < numNodes )
+	{		
+		int anchorIndex  = g_anchorIndex[nodeID];
+		float4 position = g_vertexPositions[nodeID];
+
+		if ( anchorIndex >= 0 )
+		{
+			float4 anchorPosition = g_anchorPositions[anchorIndex];
+			g_vertexPositions[nodeID] = anchorPosition;
+		}
+	}		
+}
+
+);

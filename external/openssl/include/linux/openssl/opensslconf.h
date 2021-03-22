@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:07605cfc5fc642544a60623d17cea82fddeaf90bb5cf9aa41856f4bac8b3f722
-size 136
+#if defined(__LP64__) || defined(_LP64) || defined(__x86_64)
+#include "opensslconf-x86_64.h"
+#else
+#include "opensslconf-i386.h"
+#endif

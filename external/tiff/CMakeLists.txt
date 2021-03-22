@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:56af9932fb878cb510e91934cae92469b5ce59c626981eb8f219bcb699b77f8a
-size 278
+set(SOURCE CCModuleTIFF.cpp)
+
+add_library(cocostiff STATIC ${SOURCE})
+
+target_link_libraries(cocostiff tiff cocos2d)
+
+set_target_properties(cocostiff
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
+

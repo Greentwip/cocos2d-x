@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:58fda76ae40e2b33479b25c8d830a9a85026bed0dacd967c2372821ccf274dc8
-size 295
+This version of Tremolo is derived from Tremolo library version
+0.07. It has been patched against publicly known vulnerabilities
+with sample files available here:
+
+ http://static.dataspill.org/releases/ogg/examples/
+
+When syncing with svn, please ensure that these defects are not
+reintroduced.

@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b353c5b80008606af3e6e02f29039e1abedfc986f5da0d9ed23aafd181663e19
-size 243
+set(TINYXML2_SRC
+  tinyxml2.cpp
+)
+
+add_library(tinyxml2 STATIC
+  ${TINYXML2_SRC}
+)
+
+set_target_properties(tinyxml2
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
+

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:98b2b344c077d0c47b7d20ff638d10f5e57cd039d73f481f01d28e2881ee9e44
-size 349
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := cocos_freetype2_static
+LOCAL_MODULE_FILENAME := freetype2
+LOCAL_SRC_FILES := $(TARGET_ARCH_ABI)/libfreetype.a
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../include/android \
+                         $(LOCAL_PATH)/../../include/android/freetype2
+include $(PREBUILT_STATIC_LIBRARY)

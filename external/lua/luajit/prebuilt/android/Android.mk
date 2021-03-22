@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d692cfa3d7a5c161f21118652faa8091143db7d3f197084258fa073e71dfb99e
-size 260
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE    := luajit_static
+LOCAL_MODULE_FILENAME := libluajit
+LOCAL_SRC_FILES := $(TARGET_ARCH_ABI)/libluajit.a
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../include
+include $(PREBUILT_STATIC_LIBRARY)

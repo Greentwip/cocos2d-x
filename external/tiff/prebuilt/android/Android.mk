@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b572c1476d09774e410c23b98c0f9199932d50f34dd403e05226c0dccabc7336
-size 262
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := cocos_tiff_static
+LOCAL_MODULE_FILENAME := tiff
+LOCAL_SRC_FILES := $(TARGET_ARCH_ABI)/libtiff.a
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../include/android
+include $(PREBUILT_STATIC_LIBRARY)

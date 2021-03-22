@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:30d410f03ec8ba5eb1f609e0fe2b6b7d298417bc9125fa70fe3ebdc3b88a3ee3
-size 235
+#ifdef __arm64__
+#include "opensslconf-arm64.h"
+#elif __arm__
+#include "opensslconf-arm32.h"
+#elif __i386__
+#include "opensslconf-i386.h"
+#elif __x86_64__
+#include "opensslconf-x86_64.h"
+#else
+#error "Unsupported architecture!"
+#endif

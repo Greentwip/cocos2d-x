@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5a76c74857aaa4d16029b728f4ccd8311f2ebea1ab4d6d9eb353ee0de48fb315
-size 266
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := cocos_chipmunk_static
+LOCAL_MODULE_FILENAME := chipmunk
+LOCAL_SRC_FILES := $(TARGET_ARCH_ABI)/libchipmunk.a
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../include
+include $(PREBUILT_STATIC_LIBRARY)

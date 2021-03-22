@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ae851a86d36905499c9904a3fdd04018c4ba47b7d048d4d07423756062eeb38c
-size 1274
+#ifndef BT_DEFAULT_MOTION_STATE_H
+#define BT_DEFAULT_MOTION_STATE_H
+
+#include "btMotionState.h"
+
+///The btDefaultMotionState provides a common implementation to synchronize world transforms with offsets.
+ATTRIBUTE_ALIGNED16(struct)	btDefaultMotionState : public btMotionState
+{
+	btTransform m_graphicsWorldTrans;
+	btTransform	m_centerOfMassOffset;
+	btTransform m_startWorldTrans;
+	void*		m_userPointer;
+
+	BT_DECLARE_ALIGNED_ALLOCATOR();
+
+	btDefaultMotionState(const btTransform& startTrans = btTransform::getIdentity(),const btTransform& centerOfMassOffset = btTransform::getIdentity())
+		: m_graphicsWorldTrans(startTrans),
+		m_centerOfMassOffset(centerOfMassOffset),
+		m_startWorldTrans(startTrans),
+		m_userPointer(0)
+
+	{
+	}
+
+	///synchronizes world transform from user to physics
+	virtual void	getWorldTransform(btTransform& centerOfMassWorldTrans ) const 
+	{
+			centerOfMassWorldTrans = 	m_centerOfMassOffset.inverse() * m_graphicsWorldTrans ;
+	}
+
+	///synchronizes world transform from physics to user
+	///Bullet only calls the update of worldtransform for active objects
+	virtual void	setWorldTransform(const btTransform& centerOfMassWorldTrans)
+	{
+			m_graphicsWorldTrans = centerOfMassWorldTrans * m_centerOfMassOffset ;
+	}
+
+	
+
+};
+
+#endif //BT_DEFAULT_MOTION_STATE_H

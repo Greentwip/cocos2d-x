@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4f46e262ad2093238a7115878e86b3090ce929988f85163593cc0c9854b050a8
-size 227
+#ifdef __arm64__
+#include "curlbuild-arm64.h"
+#elif __arm__
+#include "curlbuild-arm32.h"
+#elif __i386__
+#include "curlbuild-i386.h"
+#elif __x86_64__
+#include "curlbuild-x86_64.h"
+#else
+#error "Unsupported architecture!"
+#endif

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4aea4c1b975d43184f4f1fd1a42c79cf11d74d2801315740cec07fe9abebb56d
-size 262
+/*
+** $Id: lapi.h,v 2.2.1.1 2007/12/27 13:02:25 roberto Exp $
+** Auxiliary functions from Lua API
+** See Copyright Notice in lua.h
+*/
+
+#ifndef lapi_h
+#define lapi_h
+
+
+#include "lobject.h"
+
+
+LUAI_FUNC void luaA_pushobject (lua_State *L, const TValue *o);
+
+#endif

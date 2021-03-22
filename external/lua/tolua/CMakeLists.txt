@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0e7afd76e6fd9fc1631cadd9f9d6ac0f307c7c068113b95edc61d465a2acb612
-size 320
+set(TOLUA_SRC
+  tolua_event.c
+  tolua_is.c
+  tolua_map.c
+  tolua_push.c
+  tolua_to.c
+)
+
+include_directories(
+  ../lua
+)
+
+
+add_library(tolua STATIC
+  ${TOLUA_SRC}
+)
+
+set_target_properties(tolua
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)

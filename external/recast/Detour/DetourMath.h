@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac282aea2ee5eb5780adcd7a18a62928514ba28232328d4e16b8706aa74d9697
-size 569
+/**
+@defgroup detour Detour
+
+Members in this module are wrappers around the standard math library
+*/
+
+#ifndef DETOURMATH_H
+#define DETOURMATH_H
+
+#include <math.h>
+
+inline float dtMathFabsf(float x) { return fabsf(x); }
+inline float dtMathSqrtf(float x) { return sqrtf(x); }
+inline float dtMathFloorf(float x) { return floorf(x); }
+inline float dtMathCeilf(float x) { return ceilf(x); }
+inline float dtMathCosf(float x) { return cosf(x); }
+inline float dtMathSinf(float x) { return sinf(x); }
+inline float dtMathAtan2f(float y, float x) { return atan2f(y, x); }
+
+#endif

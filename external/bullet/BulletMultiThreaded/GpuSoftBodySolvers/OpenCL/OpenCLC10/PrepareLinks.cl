@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bd204c824ad252da69434572338601287cb4c9098f3d67f22079e0f8c7d469b5
-size 973
+MSTRINGIFY(
+
+
+
+__kernel void 
+PrepareLinksKernel( 
+	const int numLinks,
+	__global int2 * g_linksVertexIndices,
+	__global float * g_linksMassLSC,
+	__global float4 * g_nodesPreviousPosition,
+	__global float * g_linksLengthRatio,
+	__global float4 * g_linksCurrentLength GUID_ARG)
+{
+	int linkID = get_global_id(0);
+	if( linkID < numLinks )
+	{	
+		
+		int2 nodeIndices = g_linksVertexIndices[linkID];
+		int node0 = nodeIndices.x;
+		int node1 = nodeIndices.y;
+		
+		float4 nodePreviousPosition0 = g_nodesPreviousPosition[node0];
+		float4 nodePreviousPosition1 = g_nodesPreviousPosition[node1];
+
+		float massLSC = g_linksMassLSC[linkID];
+		
+		float4 linkCurrentLength = nodePreviousPosition1 - nodePreviousPosition0;
+		linkCurrentLength.w = 0.f;
+		
+		float linkLengthRatio = dot(linkCurrentLength, linkCurrentLength)*massLSC;
+		linkLengthRatio = 1.0f/linkLengthRatio;
+		
+		g_linksCurrentLength[linkID] = linkCurrentLength;
+		g_linksLengthRatio[linkID]   = linkLengthRatio;		
+	}
+}
+
+);

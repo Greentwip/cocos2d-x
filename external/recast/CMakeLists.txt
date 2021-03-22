@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e8da5aa311baca8dcbff367a3788f0677d8201cfa815329072fb5d65470fb44c
-size 762
+set(RECAST_SRC
+DebugUtils/DebugDraw.cpp
+DebugUtils/DetourDebugDraw.cpp
+Detour/DetourAlloc.cpp
+Detour/DetourCommon.cpp
+Detour/DetourNavMesh.cpp
+Detour/DetourNavMeshBuilder.cpp
+Detour/DetourNavMeshQuery.cpp
+Detour/DetourNode.cpp
+DetourCrowd/DetourCrowd.cpp
+DetourCrowd/DetourLocalBoundary.cpp
+DetourCrowd/DetourObstacleAvoidance.cpp
+DetourCrowd/DetourPathCorridor.cpp
+DetourCrowd/DetourPathQueue.cpp
+DetourCrowd/DetourProximityGrid.cpp
+DetourTileCache/DetourTileCache.cpp
+DetourTileCache/DetourTileCacheBuilder.cpp
+fastlz/fastlz.c
+)
+
+include_directories(
+  ..
+)
+
+add_library(recast STATIC
+  ${RECAST_SRC}
+)
+
+set_target_properties(recast
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)

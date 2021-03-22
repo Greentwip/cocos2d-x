@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:95f2e29ad5dc2d42712bbae9edd1aa3fe68d457e7ef95a309387459c96af60e4
-size 94
+#if defined(__LP64__) && __LP64__
+#include"tiffconf-64.h"
+#else
+#include"tiffconf-32.h"
+#endif

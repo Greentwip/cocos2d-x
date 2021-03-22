@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3523f6b7592f21b1a098c5167c25c27eb2d20c8b3a02dd875ee402521b5b42d9
-size 851
+#ifndef UDP_H
+#define UDP_H
+/*=========================================================================*\
+* UDP object
+* LuaSocket toolkit
+*
+* The udp.h module provides LuaSocket with support for UDP protocol
+* (AF_INET, SOCK_DGRAM).
+*
+* Two classes are defined: connected and unconnected. UDP objects are
+* originally unconnected. They can be "connected" to a given address 
+* with a call to the setpeername function. The same function can be used to
+* break the connection.
+\*=========================================================================*/
+#include "lua.h"
+
+#include "timeout.h"
+#include "socket.h"
+
+/* can't be larger than wsocket.c MAXCHUNK!!! */
+#define UDP_DATAGRAMSIZE 8192
+
+typedef struct t_udp_ {
+    t_socket sock;
+    t_timeout tm;
+    int family;
+} t_udp;
+typedef t_udp *p_udp;
+
+int udp_open(lua_State *L);
+
+#endif /* UDP_H */

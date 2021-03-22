@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1b94914844e6af90f099586a987b2b64f57d5b867dd0d052057daea25b894314
-size 256
+set(UNZIP_SRC
+  ioapi.cpp
+  unzip.cpp
+  ioapi_mem.cpp
+)
+
+add_library(unzip STATIC
+  ${UNZIP_SRC}
+)
+
+set_target_properties(unzip
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
+

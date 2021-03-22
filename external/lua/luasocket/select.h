@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c093e136618097da946096fd215aefae346e4e98fa469b7607ad5e4f577f5c96
-size 571
+#ifndef SELECT_H
+#define SELECT_H
+/*=========================================================================*\
+* Select implementation
+* LuaSocket toolkit
+*
+* Each object that can be passed to the select function has to export 
+* method getfd() which returns the descriptor to be passed to the
+* underlying select function. Another method, dirty(), should return 
+* true if there is data ready for reading (required for buffered input).
+\*=========================================================================*/
+
+int select_open(lua_State *L);
+
+#endif /* SELECT_H */

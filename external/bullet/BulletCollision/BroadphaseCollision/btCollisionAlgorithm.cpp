@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6cffa614e26def70cf9211be8d15cf34ad1f6ec401160acbe7bb094b176ce643
-size 1140
+/*
+Bullet Continuous Collision Detection and Physics Library
+Copyright (c) 2003-2006 Erwin Coumans  http://continuousphysics.com/Bullet/
+
+This software is provided 'as-is', without any express or implied warranty.
+In no event will the authors be held liable for any damages arising from the use of this software.
+Permission is granted to anyone to use this software for any purpose, 
+including commercial applications, and to alter it and redistribute it freely, 
+subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required.
+2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
+3. This notice may not be removed or altered from any source distribution.
+*/
+
+#include "btCollisionAlgorithm.h"
+#include "btDispatcher.h"
+
+btCollisionAlgorithm::btCollisionAlgorithm(const btCollisionAlgorithmConstructionInfo& ci)
+{
+	m_dispatcher = ci.m_dispatcher1;
+}
+

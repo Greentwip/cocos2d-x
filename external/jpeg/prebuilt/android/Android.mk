@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f3265c42a37aee1fbb409bafbe41fef407ee56c81fce1ca38a6c026afbe65560
-size 262
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := cocos_jpeg_static
+LOCAL_MODULE_FILENAME := jpeg
+LOCAL_SRC_FILES := $(TARGET_ARCH_ABI)/libjpeg.a
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../include/android
+include $(PREBUILT_STATIC_LIBRARY)
