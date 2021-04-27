@@ -59,6 +59,12 @@ extern "C" {
 #include "deprecated/CCDouble.h"
 #include "platform/CCFileUtils.h"
 
+#if defined(COCOS_LUA_LOG)
+#define CCLUALOG(format, ...)      cocos2d::log(format, ##__VA_ARGS__)
+#else
+#define CCLUALOG CCLOG
+#endif
+
 namespace {
     int get_string_for_print(lua_State * L, std::string* out)
     {
@@ -87,7 +93,7 @@ namespace {
     {
         std::string t;
         get_string_for_print(L, &t);
-        CCLOG("[LUA-print] %s", t.c_str());
+        CCLUALOG("[LUA-print] %s", t.c_str());
 
         return 0;
     }

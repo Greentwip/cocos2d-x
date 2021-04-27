@@ -54,6 +54,8 @@ public:
 
     static void onButtonEvent(int deviceId, int keyCode, bool isPressed, float value, bool isAnalog);
 
+    static void onAxisEvent(int deviceId, int axisCode, float value, bool isAnalog);
+
 public:
     Controller* _controller;
 };

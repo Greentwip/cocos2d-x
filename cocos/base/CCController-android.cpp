@@ -129,7 +129,11 @@ void cocos2d::ControllerImpl::onDisconnected(int deviceId){
 
 }
 
-void cocos2d::ControllerImpl::onButtonEvent(int deviceId, int keyCode, bool isPressed, float value, bool isAnalog){
+void cocos2d::ControllerImpl::onButtonEvent(int deviceId, int keyCode, bool isPressed, float value, bool isAnalog) {
+
+}
+
+void cocos2d::ControllerImpl::onAxisEvent(int deviceId, int axisCode, float value, bool isAnalog) {
 
 }
 

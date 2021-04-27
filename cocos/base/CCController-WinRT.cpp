@@ -93,19 +93,18 @@ void ControllerImpl::onButtonEvent(int deviceId, int keyCode, bool isPressed, fl
 }
 
 
-/*
-static void onAxisEvent(const std::string& deviceName, int deviceId, int axisCode, float value, bool isAnalog)
+void ControllerImpl::onAxisEvent(int deviceId, int axisCode, float value, bool isAnalog)
 {
-	auto iter = findController(deviceName, deviceId);
+	auto iter = findController(deviceId);
 	if (iter == Controller::s_allController.end())
 	{
 		CCLOG("onAxisEvent:connect new controller.");
-		onConnected(deviceName, deviceId);
-		iter = findController(deviceName, deviceId);
+		onConnected(deviceId);
+		iter = findController(deviceId);
 	}
 
 	(*iter)->onAxisEvent(axisCode, value, isAnalog);
-}*/
+}
 
 void Controller::startDiscoveryController()
 {
