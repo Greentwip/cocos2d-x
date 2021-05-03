@@ -639,7 +639,7 @@
       <CompileAsWinRT>false</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(EngineRoot)cocos\platform\winrt;$(EngineRoot)external\win10-specific\angle\include;$(EngineRoot)external\win10-specific\zlib\include;$(EngineRoot);$(EngineRoot)cocos;$(EngineRoot)external\lua\tolua;$(EngineRoot)external\lua\luajit\include;$(EngineRoot)external\lua;$(EngineRoot)extensions;$(EngineRoot)external;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WINRT;_USRLUADLL;COCOS2D_DEBUG=0;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;NOMINMAX;GL_GLEXT_PROTOTYPES;_HAS_ITERATOR_DEBUGGING=0;COCOS_LUA_LOG=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINRT;_USRLUADLL;COCOS2D_DEBUG=0;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;NOMINMAX;GL_GLEXT_PROTOTYPES;_HAS_ITERATOR_DEBUGGING=0;COCOS_LUA_LOG=1;luajit_c;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
