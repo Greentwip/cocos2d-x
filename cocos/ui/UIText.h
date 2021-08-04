@@ -325,6 +325,12 @@ public:
     Color4B getEffectColor() const;
     
     /**
+     * Returns internal label
+     */
+    virtual Label* getLabel();
+
+
+    /**
      * Provides a way to treat each character like a Sprite.
      * @warning No support system font.
      */

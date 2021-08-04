@@ -56036,6 +56036,7 @@ int lua_cocos2dx_Label_getFontAtlas(lua_State* tolua_S)
 
     return 0;
 }
+
 int lua_cocos2dx_Label_setLineHeight(lua_State* tolua_S)
 {
     int argc = 0;
@@ -56086,6 +56087,7 @@ int lua_cocos2dx_Label_setLineHeight(lua_State* tolua_S)
 
     return 0;
 }
+
 int lua_cocos2dx_Label_setSystemFontSize(lua_State* tolua_S)
 {
     int argc = 0;
@@ -57111,6 +57113,7 @@ int lua_cocos2dx_Label_getTTFConfig(lua_State* tolua_S)
 
     return 0;
 }
+
 int lua_cocos2dx_Label_enableItalics(lua_State* tolua_S)
 {
     int argc = 0;
@@ -58487,6 +58490,71 @@ int lua_register_cocos2dx_Label(lua_State* tolua_S)
     g_typeCast["Label"] = "cc.Label";
     return 1;
 }
+
+
+int lua_cocos2dx_FontAtlas_setAliasTexParameters(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::FontAtlas* cobj = nullptr;
+    bool ok = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S, 1, "cc.FontAtlas", 0, &tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::FontAtlas*)tolua_tousertype(tolua_S, 1, 0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj)
+    {
+        tolua_error(tolua_S, "invalid 'cobj' in function 'lua_cocos2dx_FontAtlas_setAliasTexParameters'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+    if (argc == 0)
+    {
+        if (!ok)
+        {
+            tolua_error(tolua_S, "invalid arguments in function 'lua_cocos2dx_FontAtlas_setAliasTexParameters'", nullptr);
+            return 0;
+        }
+        cobj->setAliasTexParameters();
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FontAtlas:setAliasTexParameters", argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S, "#ferror in function 'lua_cocos2dx_FontAtlas_setAliasTexParameters'.", &tolua_err);
+#endif
+
+    return 0;
+}
+
+
+int lua_register_cocos2dx_FontAtlas(lua_State* tolua_S)
+{
+    tolua_usertype(tolua_S, "cc.FontAtlas");
+    tolua_cclass(tolua_S, "FontAtlas", "cc.FontAtlas", "cc.Node", nullptr);
+
+    tolua_beginmodule(tolua_S, "FontAtlas");
+    tolua_function(tolua_S, "setAliasTexParameters", lua_cocos2dx_FontAtlas_setAliasTexParameters);
+    tolua_endmodule(tolua_S);
+    std::string typeName = typeid(cocos2d::FontAtlas).name();
+    g_luaType[typeName] = "cc.FontAtlas";
+    g_typeCast["FontAtlas"] = "cc.FontAtlas";
+    return 1;
+}
+
 
 int lua_cocos2dx_LabelAtlas_setString(lua_State* tolua_S)
 {
@@ -103285,8 +103353,9 @@ TOLUA_API int register_all_cocos2dx(lua_State* tolua_S)
 	lua_register_cocos2dx_EaseExponentialOut(tolua_S);
 	lua_register_cocos2dx_Label(tolua_S);
 	lua_register_cocos2dx_Application(tolua_S);
-	lua_register_cocos2dx_DelayTime(tolua_S);
-	lua_register_cocos2dx_LabelAtlas(tolua_S);
+    lua_register_cocos2dx_DelayTime(tolua_S);
+    lua_register_cocos2dx_FontAtlas(tolua_S);
+    lua_register_cocos2dx_LabelAtlas(tolua_S);
 	lua_register_cocos2dx_SpriteBatchNode(tolua_S);
 	lua_register_cocos2dx_TMXLayer(tolua_S);
 	lua_register_cocos2dx_AsyncTaskPool(tolua_S);
